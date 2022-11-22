@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--mapper的xml的头文件-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crm.dao.wylProductDao">
+
+    <select id="findBuyNum" resultType="java.lang.Integer">
+        select count(DISTINCT oid) from wyl_p where pname=#{pname}
+    </select>
+    <select id="findAllCus" resultType="java.lang.Integer">
+        select count(DISTINCT oid) from wyl_p
+    </select>
+    <select id="proLists" resultType="java.lang.String">
+        select DISTINCT pname from wyl_p
+    </select>
+    <select id="findTwo" resultType="java.lang.Integer">
+        select count(DISTINCT oid) from wyl_p where oid in( select DISTINCT oid from wyl_p where pname =#{pname})and pname=#{pname1}
+    </select>
+
+</mapper>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="table-responsive">
+  <div align="center">
+    <div class="container">
+      <div class="row clearfix">
+        <!--<div class="col-md-12 column">-->
+
+        <form class="form-horizontal" role="form" id="examPaperAction" th:action="@{/find}" method="post">
+
+          <div class="form-group">
+            <div class="col-sm-3">
+              <input class="form-control" id="pname" name="pname" type="text"  placeholder="商品名称" />
+            </div>
+          </div><br />
+
+          <div class="form-group">
+            <div class="col-sm-3">
+              <input class="form-control" id="price" name="price" type="text"  placeholder="商品价格" />
+            </div>
+          </div><br />
+
+          <div class="form-group">
+            <div class="col-sm-3">
+              <input class="form-control" id="fac" name="fac" type="text"  placeholder="供货商或厂家" />
+            </div>
+          </div><br />
+
+          <div class="form-group">
+            <div class="col-sm-3">
+              <textarea class="form-control" id="detail" name="detail" rows="5" cols="30" placeholder="详细描述" type="text"  ></textarea>
+            </div>
+          </div><br />
+          <div class="form-group">
+            <div class="col-sm-5">
+              <input class="form-control" id="dan" name="dan" type="text"  placeholder="商品单位" />
+            </div>
+          </div>
+          <br />
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+              <button  type="submit" class="btn btn-default btn-lg btn-block">
+                查询
+              </button>
+            </div>
+          </div>
+        </form>
+        <br />
+        <!--</div>-->
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+
+<h4>你可能感兴趣的商品：(关联算法)</h4>
+  <table class="table table-striped"  >
+    <thead>
+    <tr>
+      <th style="font-size: 10px;">商品id</th>
+      <th style="font-size: 10px;">商品名称</th>
+      <th style="font-size: 10px;">商品价格</th>
+      <th style="font-size: 10px;">生产厂家</th>
+      <th style="font-size: 10px;">详细描述</th>
+      <th style="font-size: 10px;">商品单位</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="plist: ${plist}">
+      <td th:text="${plist.pid}"></td>
+      <td th:text="${plist.pname}"></td>
+      <td th:text="${plist.price}"></td>
+      <td th:text="${plist.fac}"></td>
+      <td th:text="${plist.detail}"></td>
+      <td th:text="${plist.dan}"></td>
+    </tr>
+    </tbody>
+  </table>
+<br/>
+  <br/>
+  <h4>你可能感兴趣的商品：(相邻算法)</h4>
+  <table class="table table-striped"  >
+    <thead>
+    <tr>
+      <th style="font-size: 10px;">商品id</th>
+      <th style="font-size: 10px;">商品名称</th>
+      <th style="font-size: 10px;">商品价格</th>
+      <th style="font-size: 10px;">生产厂家</th>
+      <th style="font-size: 10px;">详细描述</th>
+      <th style="font-size: 10px;">商品单位</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="plist1: ${plist1}">
+      <td th:text="${plist1.pid}"></td>
+      <td th:text="${plist1.pname}"></td>
+      <td th:text="${plist1.price}"></td>
+      <td th:text="${plist1.fac}"></td>
+      <td th:text="${plist1.detail}"></td>
+      <td th:text="${plist1.dan}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+<script>
+</script>
+</body>
+</html>
