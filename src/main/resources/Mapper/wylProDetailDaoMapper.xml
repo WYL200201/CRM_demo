@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--mapper的xml的头文件-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crm.dao.wylProDetailDao">
+
+    <select id="findByName" resultType="com.example.crm.pojo.wylProDetail">
+        select DISTINCT* from wyl_de where pname=#{pname}
+    </select>
+    <select id="findDis" resultType="java.lang.Double">
+        select max(price)-min(price) from wyl_de
+    </select>
+    <select id="pList" resultType="java.lang.Double">
+        select price from wyl_de
+    </select>
+    <select id="findById" resultType="com.example.crm.pojo.wylProDetail">
+        SELECT *from wyl_de where pid=#{pid}
+    </select>
+</mapper>
